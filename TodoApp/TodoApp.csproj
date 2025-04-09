@@ -10,8 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Business\" />
-    <Folder Include="DataAccess\Abstract\" />
-    <Folder Include="DataAccess\Concrete\" />
   </ItemGroup>
 
   <ItemGroup>
