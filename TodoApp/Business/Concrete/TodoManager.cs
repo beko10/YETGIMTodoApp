@@ -13,14 +13,14 @@ public class TodoManager : ITodoService
         _todoRepository = todoRepository;
     }
 
-    public void AddTodo(Todo todo)
+    public void Add(Todo todo)
     {
         //iş kuralları sağlanırsa eklenir
         _todoRepository.Add(todo);
         //iş kuralları sağlanmazsa hata fırlatılır
     }
 
-    public void DeleteTodo(int id)
+    public void Delete(int id)
     {
         //silinecek todo var mı kontrol et
         var deletedTodo = _todoRepository.GetById(id);
@@ -43,7 +43,7 @@ public class TodoManager : ITodoService
         return _todoRepository.GetById(id);
     }
 
-    public void UpdateTodo(Todo todo)
+    public void Update(Todo todo)
     {
         //güncellenecek todo var mı kontrol et
         var updatedTodo = _todoRepository.GetById(todo.Id);

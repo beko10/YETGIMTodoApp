@@ -4,9 +4,9 @@ namespace TodoApp.Business.Abstract;
 
 public interface ITodoService
 {
-    void AddTodo(Todo todo);
-    void UpdateTodo(Todo todo);
-    void DeleteTodo(int id);
+    void Add(Todo todo);
+    void Update(Todo todo);
+    void Delete(int id);
     Todo GetTodoById(int id);
     List<Todo> GetAllTodos();
 }
