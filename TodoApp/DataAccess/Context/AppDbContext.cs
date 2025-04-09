@@ -9,7 +9,8 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=DESKTOP-JH4RF0R;Database=TodoAppDb;Trusted_Connection=True;");
+        optionsBuilder.UseSqlServer(@"Server=DESKTOP-JH4RF0R;Database=TodoAppDb;Trusted_Connection=True;Encrypt=False;");
     }
+
 
 }
