@@ -27,11 +27,11 @@ namespace TodoApp
             // Form yüklendiðinde yapýlacak iþlemler
             // Örneðin, veritabanýndan todo'larý listeleme
             lstTodo.DataSource = _todoService.GetAllTodos();
-            lstTodo.DisplayMember = "Title"; // Liste kutusunda gösterilecek alan
-            lstTodo.ValueMember = "Id"; // Seçilen öðenin deðeri
+            lstTodo.DisplayMember = "Title"; // Görüntülenecek alan
+            lstTodo.ValueMember = "Id"; // Seçilen deðerin Id olmasý
             lstTodo.SelectedIndexChanged += lstTodo_SelectedIndexChanged;
         }
- 
+
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
@@ -41,7 +41,7 @@ namespace TodoApp
                 Description = txtDescription.Text,
                 DueDate = dtmDueDate.Value
             };
-            _todoService.Add(todo); 
+            _todoService.Add(todo);
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -54,27 +54,32 @@ namespace TodoApp
         {
             int id = Convert.ToInt32(lstTodo.SelectedValue);
             var updatedTodo = _todoService.GetTodoById(id);
+            updatedTodo.Title = txtTitle.Text;
+            updatedTodo.Description = txtDescription.Text;
+            updatedTodo.DueDate = dtmDueDate.Value;
             _todoService.Update(updatedTodo);
 
         }
 
         private void btn_List_Click(object sender, EventArgs e)
         {
-            lstTodo.DataSource = _todoService.GetAllTodos();
             lstTodo.DisplayMember = "Title";
             lstTodo.ValueMember = "Id";
+            lstTodo.DataSource = _todoService.GetAllTodos();
         }
 
         private void lstTodo_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(lstTodo.SelectedValue);
             Todo todo = _todoService.GetTodoById(id);
-            if (lstTodo.SelectedItem is not null )
+            if (lstTodo.SelectedItem is not null)
             {
                 txtTitle.Text = todo.Title;
                 txtDescription.Text = todo.Description;
                 dtmDueDate.Value = todo.DueDate;
             }
         }
+
+   
     }
 }

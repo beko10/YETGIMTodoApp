@@ -82,6 +82,7 @@
             lstTodo.Name = "lstTodo";
             lstTodo.Size = new Size(251, 169);
             lstTodo.TabIndex = 3;
+            lstTodo.SelectedIndexChanged += lstTodo_SelectedIndexChanged;
             // 
             // btn_Add
             // 
